@@ -1,2 +1,641 @@
 # Fin-Tech-Team-Recruitment
-This repo is only made for Fin Tech Team Recruitment using HTML language Note"There is no live deployment of the site" but you can access  this by the runing the source code into your local system and it containing the google link in website as registration button, Made by - Umang patel 25mei10037 student of VIT BHOPAL email:- umangp2677@gmail.com
+#This repo is only made for Fin Tech Team Recruitment using HTML language Note"There is no live deployment of the site" but you can access  this by the runing the source code into your local system and it containing #the google link in website as registration button, Made by - Umang patel 25mei10037 student of VIT BHOPAL email:- umangp2677@gmail.com
+
+#Source code
+#save it index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinFit: Get Financially Fit | Fintech Club VITB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #7dd3fc 0%, #fde68a 33%, #fb923c 66%, #fb7185 100%);
+            color: #2c3e50;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated background shapes */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: floatShape 15s infinite ease-in-out;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { 
+                transform: translateY(0) translateX(0) scale(1) rotate(0deg); 
+                opacity: 0.4; 
+            }
+            33% { 
+                transform: translateY(-150px) translateX(100px) scale(1.3) rotate(120deg); 
+                opacity: 0.8; 
+            }
+            66% { 
+                transform: translateY(150px) translateX(-100px) scale(0.9) rotate(240deg); 
+                opacity: 0.6; 
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Animation */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .vit-logo {
+            max-width: 350px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            font-size: 2.7rem;
+            color: #ff1493;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #5714ff, #9928cd, #06e2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            animation: fadeIn 1.2s ease-out 0.3s both;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            transform: scale(0);
+        }
+
+        .card:hover::before {
+            transform: scale(1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 20, 147, 0.5);
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ff1493;
+        }
+
+        .card p, .card ul {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        /* Speaker Section */
+        .speaker-section {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(0, 188, 212, 0.1));
+            animation: fadeIn 1.4s ease-out 0.5s both;
+        }
+
+        .speaker-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .speaker-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .speaker-details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .speaker-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .speaker-title {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            animation: fadeIn 1.6s ease-out 0.7s both;
+        }
+
+        .register-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.4);
+            animation: glow 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 10px 40px rgba(255, 20, 147, 0.4); }
+            50% { box-shadow: 0 10px 60px rgba(255, 20, 147, 0.6); }
+        }
+
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .register-btn:hover::before {
+            left: 100%;
+        }
+
+        .register-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(255, 20, 147, 0.6);
+        }
+
+        .cta-text {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 105, 180, 0.2);
+            transform: scale(1.05);
+        }
+
+        .info-item-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .info-item-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 80px;
+            padding: 50px 0;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            animation: fadeIn 1.8s ease-out 0.9s both;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #5714ff, #9928cd, #06e2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .footer-info p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 2;
+            margin-bottom: 10px;
+        }
+
+        .footer-info strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+        }
+
+        .social-link span {
+            font-size: 1.2rem;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.3), transparent);
+            margin: 30px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom strong {
+            color: #333;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .speaker-content { flex-direction: column; text-align: center; }
+            .info-grid { grid-template-columns: 1fr; }
+            .vit-logo { max-width: 250px; }
+            .logo { font-size: 2rem; }
+            .footer-content { 
+                grid-template-columns: 1fr; 
+                gap: 30px;
+                text-align: center;
+            }
+            .social-links { 
+                justify-content: center; 
+            }
+            .footer-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <img src="C:\Users\user\Downloads\VIT_Bhopal_logo.svg.png" width="200">
+            <div class="logo">FINTECH CLUB VITB</div>
+            <h1>FinFit: Get Financially Fit</h1>
+            <p class="subtitle">Master Your Money, Secure Your Future</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Event Details -->
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <h2>Event Information</h2>
+                <p><strong>Date:</strong> September 18, 2025</p>
+                <p><strong>Time:</strong> 1:15 PM – 4:20 PM</p>
+                <p><strong>Venue:</strong> AB-2 Audi 1</p>
+            </div>
+
+            <!-- Topics Covered -->
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h2>Key Topics</h2>
+                <ul>
+                    <li>Personal Finance Mastery</li>
+                    <li>Finance x Tech Integration</li>
+                    <li>Behavioural Finance</li>
+                    <li>Financial Freedom 101</li>
+                    <li>Early Retirement Strategies</li>
+                </ul>
+            </div>
+
+            <!-- Speaker Section -->
+            <div class="card speaker-section">
+                <div class="speaker-content">
+                    <div class="speaker-avatar">AJ</div>
+                    <div class="speaker-details">
+                        <h2>KEYNOTE SPEAKER</h2>
+                        <h3>Mr. Abhishek Kumar Jhawar</h3>
+                        <p class="speaker-title">AMFI-Registered Mutual Fund Distributor | Financial Goal Planner | Educator | Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <p class="cta-text">Ready to Transform Your Financial Future?</p>
+            <a href="https://forms.gle/nx5pmVPAi5yUokiFA" class="register-btn" target="_blank">
+                REGISTER NOW →
+            </a>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">👥</div>
+                    <div class="info-item-label">Registration Type</div>
+                    <div class="info-item-value">Individual/Duo/Trio</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🎯</div>
+                    <div class="info-item-label">Organized By</div>
+                    <div class="info-item-value">Fintech Club VITB</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">⏱️</div>
+                    <div class="info-item-label">Duration</div>
+                    <div class="info-item-value">3+ Hours</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <!-- Contact Information -->
+                <div class="footer-section footer-info">
+                    <h3>📧 Get In Touch</h3>
+                    <p><strong>📧 Email:</strong> umang.25mei10037@vitbhopal.ac.in</p>
+                    <p><strong>📱 Phone:</strong> +91 7518672677</p>
+                    <p><strong>🎓 Developer:</strong> UMANG PATEL</p>
+                    <p><strong>🏛️ Institution:</strong> VIT Bhopal University</p>
+                    <p><strong>📍 Location:</strong> Bhopal, Madhya Pradesh</p>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="footer-section footer-social">
+                    <h3>🔗 Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/umang-patel-bb7720363/" target="_blank" class="social-link">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="https://github.com/umang25mei10037-coder" target="_blank" class="social-link">
+                            <span>💻</span> GitHub
+                        </a>
+                         <a href="https://www.instagram.com/umang_p8003?igsh=Y213MjRieTlpYmY4" target="_blank" class="social-link">
+                            <span>📸</span> Instagram
+                        </a>
+                        <a href="umang.25mei10037@vitbhopal.ac.in" class="social-link">
+                            <span>✉️</span> Email Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 <strong>UMANG PATEL</strong> | Designed & Developed with 💙 for Tech Team Recruitment</p>
+                <p>VIT Bhopal University | All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Generate animated particles with finance symbols
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 35;
+        const symbols = ['💎', '⭐', '✨', '🌟', '💫', '🔷', '🔶', '◆', '★', '◇'];
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+            particle.style.fontSize = `${Math.random() * 1.5 + 1.5}rem`;
+            
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth scroll effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            cards.forEach((card, index) => {
+                const speed = (index + 1) * 2;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                card.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
